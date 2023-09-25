@@ -5,10 +5,12 @@ import pickle
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import model_from_json
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
 
 try:
     pipeline1 = joblib.load('Pickle_file/decision_tree_model.pkl')  
-    pipeline2 = joblib.load('Pickle_file/logistic_regression_model.pkl')
+    pipeline2 = joblib.load('Pickle_file/xgb_model.pkl')
     pipeline3 = joblib.load('Pickle_file/random_forest_model.pkl')
 except Exception as e:
     st.error(f"Error loading the model or dataset: {str(e)}")
@@ -70,6 +72,7 @@ if st.button('Predict'):
             'Mode_of_Shipment_Flight': [shipment_encoded[0]],
             'Mode_of_Shipment_Road': [shipment_encoded[1]]
         })
+        input_data = scaler.transform(input_data)
 
     try:
         # Use the loaded model to make predictions
