@@ -5,13 +5,15 @@ import pickle
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import model_from_json
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
+
+
 
 try:
     pipeline1 = joblib.load('Pickle_file/decision_tree_model.pkl')  
     pipeline2 = joblib.load('Pickle_file/xgb_model.pkl')
     pipeline3 = joblib.load('Pickle_file/random_forest_model.pkl')
+    scaler = joblib.load('Pickle_file/scaler.pkl')
+    
 except Exception as e:
     st.error(f"Error loading the model or dataset: {str(e)}")
 
