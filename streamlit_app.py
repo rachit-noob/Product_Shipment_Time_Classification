@@ -9,7 +9,7 @@ from keras.models import model_from_json
 
 
 try:
-    pipeline1 = joblib.load('Pickle_file/decision_tree_model.pkl')  
+    # pipeline1 = joblib.load('Pickle_file/decision_tree_model.pkl')  
     pipeline2 = joblib.load('Pickle_file/xgb_model.pkl')
     pipeline3 = joblib.load('Pickle_file/random_forest_model.pkl')
     scaler = joblib.load('Pickle_file/scaler.pkl')
@@ -79,7 +79,7 @@ if st.button('Predict'):
     try:
         # Use the loaded model to make predictions
         predictions = []
-        predictions.append(pipeline1.predict(input_data))
+        # predictions.append(pipeline1.predict(input_data))
         predictions.append(pipeline2.predict(input_data))
         predictions.append(pipeline3.predict(input_data))
 
