@@ -11,7 +11,7 @@ from keras.models import model_from_json
 try:
     # pipeline1 = joblib.load('Pickle_file/decision_tree_model.pkl')  
     pipeline2 = joblib.load('Pickle_file/xgb_model.pkl')
-    pipeline3 = joblib.load('Pickle_file/random_forest_model.pkl')
+    # pipeline3 = joblib.load('Pickle_file/random_forest_model.pkl')
     scaler = joblib.load('Pickle_file/scaler.pkl')
     
 except Exception as e:
@@ -81,7 +81,7 @@ if st.button('Predict'):
         predictions = []
         # predictions.append(pipeline1.predict(input_data))
         predictions.append(pipeline2.predict(input_data))
-        predictions.append(pipeline3.predict(input_data))
+        # predictions.append(pipeline3.predict(input_data))
 
         zero = 0
         for val in predictions[0]:
